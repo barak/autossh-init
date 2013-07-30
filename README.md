@@ -24,25 +24,19 @@
 ## Usage
 []: {{{1
 
-  local & remote:
+(Assuming user is 'autossh', but can be changed in /etc/default/autossh)
 
-    $ adduser --system --group --shell /bin/false \
-      --home /var/lib/autossh --disabled-password autossh
 
-  local:
+  Generate public key for user and add restrictions:
 
     autossh$ ssh-keygen
-    # <<PUBKEY>> below is the contents of ~/.ssh/id_rsa.pub here
+    autossh$ echo -n 'command="/bin/false",no-pty,no-agent-forwarding,no-user-rc,no-X11-forwarding '| cat - ~/.ssh/id_rsa.pub > /tmp/tmp_id_rsa.pub && mv /tmp/tmp_id_rsa.pub ~/.ssh/id_rsa.pub
 
-  remote:
+  Copy key to the server via SSH:
 
-    autossh$ vim ~/.ssh/authorized_keys
-    # on a single line, add:
-    #   command="/bin/false",no-agent-forwarding,no-pty,
-    #   no-X11-forwarding,permitopen="host1:port1",
-    #   permitopen="host2:port2" <<PUBKEY>>
+    autossh$ ssh-copy-id remote-user@myserver.com
 
-  local:
+  Add script to init.d and edit defaults:
 
     $ cp -i autossh.init /etc/init.d/autossh
     $ update-rc.d autossh defaults
