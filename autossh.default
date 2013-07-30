@@ -1,11 +1,14 @@
 # Settings for autossh.  This file is sourced by /bin/bash from
 # /etc/init.d/autossh.
 
+AUTOSSH_HTTP_PORT=8080
+AUTOSSH_SSH_PORT=2222
+AUTOSSH_HOST=user@myserver.com
 AUTOSSH_USER=autossh
+
 autossh_opts -M 0 -q -N -f -o ServerAliveCountMax=3 \
                            -o ServerAliveInterval=60 \
                            -o UserKnownHostsFile=/dev/null \
                            -o StrictHostKeyChecking=no
 
-# tunnel -L 3333:localhost:4444 -L 4444:localhost:5555  autossh@host1
-# tunnel -L 5555:localhost:6666                         autossh@host2
+tunnel -R ${AUTOSSH_HTTP_PORT}:localhost:80 -R ${AUTOSSH_SSH_PORT}:localhost:22  ${AUTOSSH_HOST}
