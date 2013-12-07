@@ -25,6 +25,8 @@
       --home /var/lib/autossh --disabled-password autossh
 
   local:
+  
+    $ su - autossh -s /bin/bash
 
     autossh$ ssh-keygen
     # <<PUBKEY>> below is the contents of ~/.ssh/id_rsa.pub here
