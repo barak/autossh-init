@@ -35,9 +35,8 @@
 
     autossh$ vim ~/.ssh/authorized_keys
     # on a single line, add:
-    #   command="/bin/false",no-agent-forwarding,no-pty,
-    #   no-X11-forwarding,permitopen="host1:port1",
-    #   permitopen="host2:port2" <<PUBKEY>>
+    #   command="/bin/false",no-agent-forwarding,no-pty,no-X11-forwarding,permitopen="8.137.97.4:22"
+    #   ,permitopen="host2:port2" <<PUBKEY>>
 
   local:
 
