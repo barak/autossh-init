@@ -46,6 +46,19 @@
 
     $ service autossh start
 
+  Debian/Ubuntu:
+    # Install Debian package development tools and helper programs for debian/rules
+    $ sudo apt-get install debhelper
+
+    # Build package
+    $ dpkg-buildpackage -uc -j -b
+    # package can be found on level up
+
+    # Install package
+    $ sudo dpkg -i ../autossh-init*deb
+
+    # After installing the program will automatically restart
+
 []: }}}1
 
 ## License
