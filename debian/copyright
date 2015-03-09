@@ -1,14 +1,13 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: autossh-init
-Source: <url://example.com>
+Source: https://github.com/barryvdh/autossh-init
 
 Files: *
-Copyright: <years> <put author's name and email here>
-           <years> <likewise for another author>
+Copyright: 2013 Felix C. Stegerman <flx@obfusk.net>
 License: GPL-2.0+
 
 Files: debian/*
-Copyright: 2015 Felix C. Stegerman <flx@obfusk.net>
+Copyright: 2015 Jurij Mardar <foxlist@gmail.com>
 License: GPL-2.0+
 
 License: GPL-2.0+
