@@ -21,16 +21,17 @@
 
   local & remote:
 
-    $ adduser --system --group --shell /bin/false \
-      --home /var/lib/autossh --disabled-password autossh
+    $ sudo adduser --system --group --shell /bin/false --home /var/lib/autossh --disabled-password autossh
 
   local:
 
-    autossh$ ssh-keygen
+    $ sudo su -s /bin/bash autossh && cd ~
+    $ autossh$ ssh-keygen
     # <<PUBKEY>> below is the contents of ~/.ssh/id_rsa.pub here
 
   remote:
 
+    $ sudo su -s /bin/bash autossh && cd ~
     autossh$ vim ~/.ssh/authorized_keys
     # on a single line, add:
     #   command="/bin/false",no-agent-forwarding,no-pty,
@@ -39,11 +40,11 @@
 
   local:
 
-    $ cp -i autossh.init /etc/init.d/autossh
-    $ update-rc.d autossh defaults
+    $ sudo cp -i autossh.init /etc/init.d/autossh
+    $ sudo update-rc.d autossh defaults
 
-    $ cp -i autossh.default /etc/default/autossh
-    $ vim /etc/default/autossh
+    $ sudo cp -i autossh.default /etc/default/autossh
+    $ sudo vim /etc/default/autossh
 
     autossh$ ssh autossh@remote FAIL  # confirm fingerprint
     # alternatively -- and less securely! -- you can disable
