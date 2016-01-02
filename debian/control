@@ -1,5 +1,5 @@
 Source: autossh-init
-Section: system
+Section: net
 Priority: extra
 Maintainer: Felix C. Stegerman <flx@obfusk.net>
 Build-Depends: debhelper (>= 9)
