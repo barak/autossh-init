@@ -25,10 +25,14 @@
 
   Generate public key for user and add restrictions:
 
+  local:
+
     $ sudo su -s /bin/bash autossh
     autossh$ cd ~
     autossh$ ssh-keygen
     autossh$ echo -n 'command="/bin/false",no-pty,no-agent-forwarding,no-user-rc,no-X11-forwarding '| cat - ~/.ssh/id_rsa.pub > /tmp/tmp_id_rsa.pub && mv /tmp/tmp_id_rsa.pub ~/.ssh/id_rsa.pub
+
+  Also consider adding another clause like ,from="8.137.99.26,8.137.97.4" for extra security.
 
   Copy key to the server via SSH:
 
