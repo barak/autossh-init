@@ -21,9 +21,12 @@
 
 (Assuming user is 'autossh', but can be changed in /etc/default/autossh)
 
+    $ sudo adduser --system --group --shell /bin/false --home /var/lib/autossh --disabled-password autossh
 
   Generate public key for user and add restrictions:
 
+    $ sudo su -s /bin/bash autossh
+    autossh$ cd ~
     autossh$ ssh-keygen
     autossh$ echo -n 'command="/bin/false",no-pty,no-agent-forwarding,no-user-rc,no-X11-forwarding '| cat - ~/.ssh/id_rsa.pub > /tmp/tmp_id_rsa.pub && mv /tmp/tmp_id_rsa.pub ~/.ssh/id_rsa.pub
 
@@ -33,11 +36,11 @@
 
   Add script to init.d and edit defaults:
 
-    $ cp -i autossh.init /etc/init.d/autossh
-    $ update-rc.d autossh defaults
+    $ sudo cp -i autossh.init /etc/init.d/autossh
+    $ sudo update-rc.d autossh defaults
 
-    $ cp -i autossh.default /etc/default/autossh
-    $ vim /etc/default/autossh
+    $ sudo cp -i autossh.default /etc/default/autossh
+    $ sudo vim /etc/default/autossh
 
     autossh$ ssh autossh@remote FAIL  # confirm fingerprint
     # alternatively -- and less securely! -- you can disable
