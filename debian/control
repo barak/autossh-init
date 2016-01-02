@@ -11,5 +11,5 @@ Vcs-Git: https://github.com/obfusk/autossh-init.git
 Package: autossh-init
 Architecture: all
 Depends: autossh ${misc:Depends}
-Description: autossh-init
- autossh-init - AutoSSH init script
+Description: Init script to start autossh automatically
+ Configurable AutoSSH init script, starts autossh automatically at boot time.
