@@ -2,8 +2,8 @@ Source: autossh-init
 Section: system
 Priority: extra
 Maintainer: Felix C. Stegerman <flx@obfusk.net>
-Build-Depends: debhelper (>= 8.0.0)
-Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
 Homepage: https://github.com/obfusk/autossh-init
 Vcs-Git: https://github.com/obfusk/autossh-init.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/autossh-init.git;a=summary
