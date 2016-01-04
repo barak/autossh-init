@@ -12,4 +12,7 @@ Package: autossh-init
 Architecture: all
 Depends: autossh ${misc:Depends}
 Description: Init script to start autossh automatically
- Configurable AutoSSH init script, starts autossh automatically at boot time.
+ Init script for AutoSSH.  Starts autossh automatically at boot time.
+ Can be configured as to remote userid, ports to forward, etc.
+ Integrates with boot system, so "systemctl status autossh" or
+ "systemctl restart autossh" work.
