@@ -46,10 +46,10 @@ function tunnel () { local x="$@"; AUTOSSH_TUNNELS+=( "$x" ); }
 [ -r /etc/default/$NAME ] && . /etc/default/$NAME
 
 if [ "${AUTOSSH_HOST}" = "user@myserver.com" ]; then
-    echo "error: autossh-init has not been configured to custom setup."
+    echo "warning: autossh-init has not been configured to custom setup."
     echo " Aborting autossh-init autossh script."
     echo " Edit /etc/default/autossh.default to resolve."
-    exit 1
+    exit 0
 fi
 
 # --
